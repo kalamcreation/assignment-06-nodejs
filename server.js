@@ -1,78 +1,96 @@
 const http = require("http");
 
-const PORT = 5000;
-
 const server = http.createServer((req, res) => {
-  res.writeHead(200, {
-    "Content-Type": "text/html",
-  });
   if (req.url === "/") {
-    res.end(`
-      <!DOCTYPE html>
-      <html>
-      <head>
-          <title>Home</title>
-      </head>
-      <body>
-          <h1>Home Page</h1>
+    res.writeHead(200, {
+      "Content-Type": "text/html",
+    });
 
-          <p>Welcome to our Simple HTTP Server.</p>
+    return res.end(`
 
-          <nav>
-              <a href="/">Home</a> |
-              <a href="/about">About</a> |
-              <a href="/contact">Contact</a>
-          </nav>
-      </body>
-      </html>
-    `);
-  }
-  else if (req.url === "/about") {
-    res.end(`
-      <!DOCTYPE html>
-      <html>
-      <head>
-          <title>About</title>
-      </head>
-      <body>
-          <h1>About Page</h1>
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Home</title>
+            </head>
+            <body>
+                <h1>Home Page</h1>
+                <p>Welcome to my website.</p>
+                <a href="/">Home</a> |
+                <a href="/about">About</a> |
+                <a href="/contact">Contact</a>
+            </body>
+            </html>
 
-          <p>This is the About Page.</p>
+        `);
+    }
 
-          <nav>
-              <a href="/">Home</a> |
-              <a href="/about">About</a> |
-              <a href="/contact">Contact</a>
-          </nav>
-      </body>
-      </html>
-    `);
+  if (req.url === "bout") {
+    res.writeHead(200, {
+      "Content-Type": "text/html",
+    });
+    return res.end(`
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>About</title>
+            </head>
+            <body>
+                <h1>About Page</h1>
+                <p>This is the About page.</p>
+                <a href="/">Home</a> |
+                <a href="/about">About</a> |
+                <a href="/contact">Contact</a>
+            </body>
+            </html>
+        `);
   }
 
   else if (req.url === "/contact") {
-    res.end(`
-      <!DOCTYPE html>
-      <html>
-      <head>
-          <title>Contact</title>
-      </head>
-      <body>
-          <h1>Contact Page</h1>
+    res.writeHead(200, {
+      "Content-Type": "text/html",
+    });
+    return res.end(`
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Contact</title>
+            </head>
+            <body>
+                <h1>Contact Page</h1>
+                <p>This is the Contact page.</p>
+                <a href="/">Home</a> |
+                <a href="/about">About</a> |
+                <a href="/contact">Contact</a>
 
-          <p>This is the Contact Page.</p>
 
-          <nav>
-              <a href="/">Home</a> |
-              <a href="/about">About</a> |
-              <a href="/contact">Contact</a>
-          </nav>
-      </body>
-      </html>
-    `);
+            </body>
+            </html>
+        `);
   }
 
+  // 404 Page
+
+  res.writeHead(404, {
+    "Content-Type": "text/html",
+  });
+
+  res.end(`
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>404</title>
+        </head>
+        <body>
+            <h1>404 - Page Not Found</h1>
+            <a href="/">Go Home</a>
+        </body>
+        </html>
+
+    `);
 });
 
-server.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+server.listen(5000, () => {
+  console.log("Server running at http://localhost:5000");
 });
