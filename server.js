@@ -27,6 +27,49 @@ const server = http.createServer((req, res) => {
       </html>
     `);
   }
+  else if (req.url === "/about") {
+    res.end(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <title>About</title>
+      </head>
+      <body>
+          <h1>About Page</h1>
+
+          <p>This is the About Page.</p>
+
+          <nav>
+              <a href="/">Home</a> |
+              <a href="/about">About</a> |
+              <a href="/contact">Contact</a>
+          </nav>
+      </body>
+      </html>
+    `);
+  }
+
+  else if (req.url === "/contact") {
+    res.end(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <title>Contact</title>
+      </head>
+      <body>
+          <h1>Contact Page</h1>
+
+          <p>This is the Contact Page.</p>
+
+          <nav>
+              <a href="/">Home</a> |
+              <a href="/about">About</a> |
+              <a href="/contact">Contact</a>
+          </nav>
+      </body>
+      </html>
+    `);
+  }
 
 });
 
