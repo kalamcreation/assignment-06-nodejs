@@ -25,11 +25,7 @@ const server = http.createServer((req, res) => {
         `);
     }
 
-<<<<<<< HEAD
   if (req.url === "/about") {
-=======
-  if (req.url === "bout") {
->>>>>>> fb61e8974136dc8938b90b09bc589eeed7443cce
     res.writeHead(200, {
       "Content-Type": "text/html",
     });
