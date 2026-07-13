@@ -1,0 +1,10 @@
+{
+  "name": "simple-http-server",
+  "version": "1.0.0",
+  "description": "Simple HTTP Server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "ISC"
+}
